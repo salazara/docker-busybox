@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  docker_bb_app:
+    image: busybox:1.35
+    container_name: docker_bb_app
+    restart: unless-stopped
+    tty: true
+    working_dir: /home/workspace
+    volumes:
+      - ./workspace:/home/workspace
+    networks:
+      - docker_bb_network
+
+networks:
+  docker_bb_network:
+    driver: bridge
